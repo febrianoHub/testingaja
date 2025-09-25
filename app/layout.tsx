@@ -27,7 +27,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <div className="bg-transparent bg-gradient-to-br from-pink-300 via-pink-200 to-pink-300">
+          {children}
+        </div>
       </body>
     </html>
   );

@@ -1,0 +1,16 @@
+{
+  "recipient": "Dear Pak Alam Geming",
+  "greeting": "Dear Pak Alam Geming",
+  "content": "TF duet kopi pak adduh nak ngopi ini, 10k aka dulu gapapa ehehehehehh",
+  "signature": "dasar VOC",
+  "ui": {
+    "envelopeText": "Click to open",
+    "paperButtonText": "📖 Read Full Letter",
+    "modalCloseText": "Click outside or ✕ to close",
+    "instructions": {
+      "envelope": "Click envelope to open",
+      "paper": "Click letter to read full content",
+      "modal": "Click outside to close"
+    }
+  }
+}
