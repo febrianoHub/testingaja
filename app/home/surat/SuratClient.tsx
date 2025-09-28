@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Modal from "@/components/Modal";
+import { useAutoPlay } from "@/hooks/useAutoPlay";
 
 type MediaItem = {
   src: string;
@@ -36,6 +37,7 @@ interface SuratClientProps {
 const SuratClient: React.FC<SuratClientProps> = ({ mediaItems, suratData }) => {
   const [currentState, setCurrentState] = useState("envelope");
   const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
+  useAutoPlay();
 
   const handleClick = () => {
     if (currentState === "envelope") {

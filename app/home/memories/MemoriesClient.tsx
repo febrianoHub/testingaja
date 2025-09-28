@@ -7,8 +7,10 @@ import "swiper/css";
 import "swiper/css/effect-cards";
 import { EffectCards } from "swiper/modules";
 import Image from "next/image";
+import { useAutoPlay } from "@/hooks/useAutoPlay";
 
 export default function MemoriesClient({ memories }: { memories: string[] }) {
+  useAutoPlay();
   return (
     <div className="min-h-screen p-3 overflow-hidden">
       <Link

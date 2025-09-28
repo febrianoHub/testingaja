@@ -1,4 +1,5 @@
 "use client";
+import { useAutoPlay } from "@/hooks/useAutoPlay";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -10,6 +11,7 @@ export default function PuzzleClient({ image }: { image: string }) {
   const [solved, setSolved] = useState(false);
   const [solvedTrigger, setSolvedTrigger] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  useAutoPlay();
 
   useEffect(() => {
     if (solvedTrigger) {

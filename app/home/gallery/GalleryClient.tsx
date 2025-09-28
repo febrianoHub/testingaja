@@ -1,6 +1,7 @@
 "use client";
 
 import Modal from "@/components/Modal";
+import { useAutoPlay } from "@/hooks/useAutoPlay";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -13,6 +14,7 @@ type GalleryItem = {
 
 export default function GalleryClient({ gallery }: { gallery: GalleryItem[] }) {
   const [selected, setSelected] = useState<GalleryItem | null>(null);
+  useAutoPlay();
 
   return (
     <div className="min-h-screen p-3">

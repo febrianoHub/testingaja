@@ -16,12 +16,10 @@ const TextInputGroup = ({
 }: Props) => {
   const inputsRef = useRef<(HTMLInputElement | null)[]>([]);
 
-  // Focus first input on mount
   useEffect(() => {
     inputsRef.current[0]?.focus();
   }, []);
 
-  // Clear inputs when values are reset
   useEffect(() => {
     if (values.every((v) => v === "")) {
       inputsRef.current.forEach((input) => {
@@ -37,7 +35,6 @@ const TextInputGroup = ({
   ) => {
     const { value } = e.target;
 
-    // Only allow numbers
     if (value && !/^\d$/.test(value)) {
       return;
     }
@@ -46,7 +43,6 @@ const TextInputGroup = ({
     newValues[idx] = value;
     onChange(newValues);
 
-    // Auto focus to next input
     if (value.length === 1 && idx < length - 1) {
       inputsRef.current[idx + 1]?.focus();
     }
@@ -58,13 +54,11 @@ const TextInputGroup = ({
   ) => {
     if (e.key === "Backspace") {
       if (!e.currentTarget.value && idx > 0) {
-        // Focus previous input and clear it
         const newValues = [...values];
         newValues[idx - 1] = "";
         onChange(newValues);
         inputsRef.current[idx - 1]?.focus();
       } else if (e.currentTarget.value) {
-        // Clear current input
         const newValues = [...values];
         newValues[idx] = "";
         onChange(newValues);
@@ -75,7 +69,7 @@ const TextInputGroup = ({
       inputsRef.current[idx + 1]?.focus();
     } else if (e.key === "Enter") {
       e.preventDefault();
-      // Trigger form submit
+
       const form = e.currentTarget.closest("form");
       if (form) {
         form.dispatchEvent(
@@ -96,7 +90,6 @@ const TextInputGroup = ({
       }
       onChange(newValues);
 
-      // Focus the next empty input or last input
       const nextIndex = Math.min(pastedData.length, length - 1);
       inputsRef.current[nextIndex]?.focus();
     }

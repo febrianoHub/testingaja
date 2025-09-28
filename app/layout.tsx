@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { MusicProvider } from "@/contexts/MusicContext";
+import MusicPlayer from "@/components/MusicPlayer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,9 +29,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="bg-transparent bg-gradient-to-br from-pink-300 via-pink-200 to-pink-300">
-          {children}
-        </div>
+        <MusicProvider>
+          <div className="bg-transparent bg-gradient-to-br from-pink-300 via-pink-200 to-pink-300">
+            {children}
+          </div>
+          <MusicPlayer />
+        </MusicProvider>
       </body>
     </html>
   );

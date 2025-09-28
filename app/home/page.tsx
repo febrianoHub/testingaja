@@ -1,13 +1,19 @@
+"use client";
+
 import HomeCard from "@/components/HomeCard";
 import { CiHeart } from "react-icons/ci";
+import { useAutoPlay } from "@/hooks/useAutoPlay";
 
 export default function Home() {
+  useAutoPlay();
+
   return (
-    <div className="min-h-screen p-2">
-      <h1 className="text-5xl font-serif  text-pink-500 text-center">
+    <div className="min-h-screen p-2 pb-20">
+      {" "}
+      <h1 className="text-5xl font-serif text-pink-500 text-center">
         Menu Of Our Love
       </h1>
-      <div className="text-xl space-x-2 flex justify-center items-center font-serif  text-pink-600 text-center">
+      <div className="text-xl space-x-2 flex justify-center items-center font-serif text-pink-600 text-center">
         <CiHeart />
         <p>Together Forever</p>
         <CiHeart />
